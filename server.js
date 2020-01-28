@@ -8,6 +8,9 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 // Import Routes
 const indexRouter = require("./routes/index");
+const registerRouter = require("./routes/register");
+const aboutRouter = require("./routes/about");
+const loginRouter = require("./routes/login");
 
 // View Engine Setup
 app.set("view engine", "ejs");
@@ -27,6 +30,9 @@ db.on("error", err => console.error(err));
 
 // Routers
 app.use("/", indexRouter);
+app.use("/register", registerRouter);
+app.use("/about", aboutRouter);
+app.use("/login", loginRouter);
 
 app.listen(PORT, console.log(`Server listening on port ${PORT}.`));
 
