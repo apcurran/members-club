@@ -11,9 +11,15 @@ body {
 
 .nav {
     padding: 2rem 2.5rem;
-    background-color: #ccc;
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
+}
+
+.nav__logo {
+    font-size: 1.35rem;
+    color: #38b2ac;
+    text-decoration: none;
 }
 
 .nav__list {
