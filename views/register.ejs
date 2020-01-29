@@ -4,9 +4,12 @@
     <h2>Create Account</h2>
     <% if (typeof errors !== "undefined") { %>
         <% errors.forEach(error => { %>
-            <p><%= error.msg %> <%= error.param %></p>
+            <p class="error"><%= error.msg %> <%= error.param %></p>
         <% }); %> 
-    <% } %> 
+    <% } %>
+    <% if (typeof emailAlreadyExists !== "undefined") { %>
+        <p class="error"><%= emailAlreadyExists %></p>
+    <% } %>  
     <form action="/register" method="POST" class="form-register">
         <div class="form-group">
             <label for="email" class="form-group__label">Email</label>

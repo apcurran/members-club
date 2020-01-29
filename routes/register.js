@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-const { check, validationResult } = require('express-validator'); // Validate data
-const { body, sanitizeBody } = require('express-validator'); // Sanitize data
+const { validationResult } = require('express-validator'); // Validate data
+const { body } = require('express-validator'); // Sanitize data
 
 
 router.get("/", (req, res) => {
@@ -11,25 +11,36 @@ router.get("/", (req, res) => {
 
 router.post("/", [
 
-    check("email").isEmail(),
-    check("password").isLength({ min: 6, max: 1000 }),
-    sanitizeBody("email").escape(),
-    sanitizeBody("password").escape()
+    body("email")
+        .isEmail()
+        .normalizeEmail(),
+    body("password")
+        .not().isEmpty()
+        .isLength({ min: 6, max: 1000 })
+        .trim()
+        .escape()
 
 ], async (req, res, next) => { 
     try {
         const errors = validationResult(req);
+        // If email or password error exists, re-render page with error message
         if (!errors.isEmpty()) {
-            console.error(errors);
-            console.log(req.body.email);
             return res.render("register", { title: "Create an Account", email: req.body.email, errors: errors.array() });
         }
 
+        // If email already exists, re-render register page with error message
+        const emailExist = await User.findOne({ email: req.body.email });
+
+        if (emailExist) {
+            return res.render("register", { title: "Create an Account", emailAlreadyExists: "Email already exists" });
+        }
+
+        // Otherwise, save to db
         const user = new User({
             email: req.body.email,
             password: req.body.password
         });
-        
+
         await user.save();
         res.redirect("/");
 
