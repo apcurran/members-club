@@ -12,7 +12,9 @@ router.get("/", (req, res) => {
 router.post("/", [
 
     check("email").isEmail(),
-    check("password").isLength({ min: 6, max: 1000 })
+    check("password").isLength({ min: 6, max: 1000 }),
+    sanitizeBody("email").escape(),
+    sanitizeBody("password").escape()
 
 ], async (req, res, next) => { 
     try {
