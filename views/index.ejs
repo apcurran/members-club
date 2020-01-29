@@ -1,5 +1,8 @@
 <%- include("./partials/navbar") %> 
 <div class="container">
     <h1>Hello from Index view</h1>
+    <% if (user) { %>
+        <h2>Welcome back <%= user.username %> </h2>
+    <% } %> 
 </div>
 <%- include("./partials/footer") %> 
