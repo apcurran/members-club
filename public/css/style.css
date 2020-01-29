@@ -7,6 +7,9 @@
 body {
     background-color: lightblue;
     font-family: sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .nav {
@@ -32,4 +35,17 @@ body {
     padding: .25rem .75rem;
     color: #000;
     text-decoration: none;
+}
+
+.footer {
+    padding: 2rem;
+    background-color: #222;
+    color: #fff;
+}
+
+.footer__copyright {
+    text-align: center;
+    font-size: .95rem;
+    font-weight: 400;
+    opacity: .7;
 }

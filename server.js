@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // DB Setup
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
 const db = mongoose.connection;
-db.on("error", err => console.error(err));
+db.on("error", console.error.bind(console, "mongo connection error"));
 
 // Routers
 app.use("/", indexRouter);
