@@ -10,16 +10,29 @@
         <h2>Welcome back <%= user.name %>!</h2>
         <a href="/log-out">LOG OUT</a>
         <main class="main-messages">
-            <form action="" class="form-message"></form>
-            <section class="messages">
-                <ul class="messages__list">
-                    <li class="messages__list__item">
-                        <h3 class="messages__list__item__author"></h3>
-                        <p class="messages__list__item__para"></p>
-                        <p class="messages__list__item__date"></p>
-                    </li>
-                </ul>
-            </section>
+            <form action="/" method="POST" class="form-message">
+                <div class="form-group">
+                    <input type="hidden" name="name" value="<%= user.name %>">
+                    <label for="message" class="form-group__label">Your Message</label>
+                    <input type="text" class="form-group__input" name="message">
+                    <input type="submit" class="form-group__submit" value="Submit">
+                </div>
+            </form>
+            <% if (messages) { %>
+
+                <section class="messages">
+                    <ul class="messages__list">
+                        <% messages.forEach(message => { %>
+                            <li class="messages__list__item">
+                                <h3 class="messages__list__item__author"><%= message.name %> </h3>
+                                <p class="messages__list__item__para"><%= message.message %></p>
+                                <p class="messages__list__item__date"><%= message.date %></p>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </section>
+
+            <% } %> 
         </main>
     <% } %> 
 </div>

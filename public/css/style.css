@@ -49,3 +49,12 @@ body {
     font-weight: 400;
     opacity: .7;
 }
+
+/* Messages Page */
+.main-messages {
+    padding: 3rem;
+    background-color: #fff;
+    width: 60rem;
+    max-width: 92.5%;
+    margin: 0 auto;
+}

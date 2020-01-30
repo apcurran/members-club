@@ -6,7 +6,12 @@ const { validationResult } = require('express-validator'); // Validate data
 const { body } = require('express-validator');
 
 router.get("/", checkAuthenticated, (req, res) => {
-    res.render("index", { title: "Members Only", user: req.user });
+    // Find all messages in db
+    Message.find((err, data) => {
+        if (err) return console.error(err);
+
+        res.render("index", { title: "Member's Only Messages", user: req.user, messages: data });
+    });
 });
 
 router.post("/", [
