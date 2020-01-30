@@ -1,10 +1,16 @@
 <%- include("./partials/navbar") %> 
 <div class="container">
     <h1>Hello from Index view</h1>
+    <% if (typeof errors !== "undefined") { %>
+        <% errors.forEach(error => { %>
+            <p class="error"><%= error.msg %> <%= error.param %></p>
+        <% }); %> 
+    <% } %>
     <% if (user) { %>
         <h2>Welcome back <%= user.name %>!</h2>
         <a href="/log-out">LOG OUT</a>
         <main class="main-messages">
+            <form action="" class="form-message"></form>
             <section class="messages">
                 <ul class="messages__list">
                     <li class="messages__list__item">
