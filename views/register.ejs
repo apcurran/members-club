@@ -10,7 +10,7 @@
     <% if (typeof emailAlreadyExists !== "undefined") { %>
         <p class="error"><%= emailAlreadyExists %></p>
     <% } %>  
-    <form action="/register" method="POST" class="form-register">
+    <form action="/register" method="POST" class="form">
         <div class="form-group">
             <label for="name" class="form-group__label">First Name</label>
             <input type="text" class="form-group__input" name="name" required>
