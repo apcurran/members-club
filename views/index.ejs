@@ -4,6 +4,16 @@
     <% if (user) { %>
         <h2>Welcome back <%= user.name %>!</h2>
         <a href="/log-out">LOG OUT</a>
+
+        <section class="messages">
+            <ul class="messages__list">
+                <li class="messages__list__item">
+                    <h3 class="messages__list__item__author"></h3>
+                    <p class="messages__list__item__para"></p>
+                    <p class="messages__list__item__date"></p>
+                </li>
+            </ul>
+        </section>
     <% } %> 
 </div>
 <%- include("./partials/footer") %> 
