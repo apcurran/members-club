@@ -11,7 +11,8 @@ router.post(
     "/",
     passport.authenticate("local", {
         successRedirect: "/",
-        failureRedirect: "/",
+        failureRedirect: "/login",
+        failureFlash: true
     })
 );
 
