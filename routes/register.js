@@ -12,6 +12,10 @@ router.get("/", (req, res) => {
 
 router.post("/", [
 
+    body("name")
+        .not().isEmpty()
+        .trim()
+        .escape(),
     body("email")
         .isEmail()
         .normalizeEmail(),
@@ -42,6 +46,7 @@ router.post("/", [
 
         // Otherwise, save to db
         const user = new User({
+            name: req.body.name,
             email: req.body.email,
             password: hashedPassword
         });
