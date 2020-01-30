@@ -16,6 +16,7 @@ const indexRouter = require("./routes/index");
 const registerRouter = require("./routes/register");
 const aboutRouter = require("./routes/about");
 const loginRouter = require("./routes/login");
+const logoutRouter = require("./routes/log-out");
 
 // DB Setup
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
@@ -48,5 +49,6 @@ app.use("/", indexRouter);
 app.use("/register", registerRouter);
 app.use("/about", aboutRouter);
 app.use("/login", loginRouter);
+app.use("/log-out", logoutRouter);
 
 app.listen(PORT, console.log(`Server listening on port ${PORT}.`));

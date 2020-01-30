@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const passport = require("passport");
+const { checkNotAuthenticated } = require("../config/checkAuth");
 
-router.get("/", (req, res) => {
+router.get("/", checkNotAuthenticated, (req, res) => {
     res.render("login", { title: "Login to Member's Club" });
 });
 
