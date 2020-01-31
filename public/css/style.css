@@ -184,6 +184,14 @@ body {
     border: 1px solid var(--btn-bgc);
     color: #fff;
     cursor: pointer;
+    transition: 
+        background-color 125ms ease-in-out,
+        border-color 125ms ease-in-out;
+}
+
+.form-group__submit--message:hover {
+    background-color: #2d3748;
+    border-color: #2d3748;
 }
 
 .messages__list {
