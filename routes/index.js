@@ -22,7 +22,6 @@ router.post("/", [
         .escape(),
     body("message")
         .not().isEmpty()
-        .trim()
         .escape()
 
 ], async (req, res, next) => {
