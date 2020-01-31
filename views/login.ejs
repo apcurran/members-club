@@ -3,21 +3,24 @@
     <section class="section-top">
         <h2 class="section-top__title">Login</h2>
     </section>
-    <% if (messages.error) { %>
-        <p><%= messages.error %></p>
-    <% } %> 
-    <form action="/login" method="POST" class="form">
-        <div class="form-group">
-            <label for="email" class="form-group__label">Email</label>
-            <input type="email" class="form-group__input" name="email" required>
-        </div>    
-        <div class="form-group">
-            <label for="password" class="form-group__label">Password</label>
-            <input type="password" class="form-group__input" name="password" required>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Submit" class="form-group__submit">
-        </div>  
-    </form>
+    <section class="section-form">
+        <form action="/login" method="POST" class="form form--login">
+            <% if (messages.error) { %>
+                <p class="error"><%= messages.error %></p>
+            <% } %> 
+            <div class="form-group">
+                <label for="email" class="form-group__label">Email</label>
+                <input type="email" class="form-group__input" name="email" required>
+            </div>    
+            <div class="form-group">
+                <label for="password" class="form-group__label">Password</label>
+                <input type="password" class="form-group__input" name="password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="form-group__submit">
+            </div>  
+        </form>
+        <img src="/images/login-illustration.svg" alt="" class="form-img--tall">
+    </section>
 </div>
 <%- include("./partials/footer") %> 

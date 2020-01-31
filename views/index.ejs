@@ -1,25 +1,25 @@
 <%- include("./partials/navbar") %> 
 <div class="container">
-    <h1>Hello from Index view</h1>
-    <% if (typeof errors !== "undefined") { %>
-        <% errors.forEach(error => { %>
-            <p class="error"><%= error.msg %> <%= error.param %></p>
-        <% }); %> 
-    <% } %>
-    <% if (user) { %>
-        <h2>Welcome back <%= user.name %>!</h2>
+    <section class="section-top">
+        <h2 class="section-top__title">Welcome back <%= user.name %>!</h2>
         <a href="/log-out">LOG OUT</a>
-        <main class="main-messages">
-            <form action="/" method="POST" class="form-message">
-                <div class="form-group">
+    </section>
+    <main class="main-messages">
+        <form action="/" method="POST" class="form--message">
+            <% if (typeof errors !== "undefined") { %>
+                <% errors.forEach(error => { %>
+                    <p class="error"><%= error.msg %> <%= error.param %></p>
+                <% }); %> 
+            <% } %>
+            <% if (user) { %>
+                <div class="form-group--message">
                     <input type="hidden" name="name" value="<%= user.name %>">
-                    <label for="message" class="form-group__label">Your Message</label>
-                    <input type="text" class="form-group__input" name="message">
-                    <input type="submit" class="form-group__submit" value="Submit">
+                    <label for="message" class="form-group__label--message">Your Message</label>
+                    <input type="text" class="form-group__input--message" name="message">
+                    <input type="submit" class="form-group__submit--message" value="Submit">
                 </div>
             </form>
             <% if (messages) { %>
-
                 <section class="messages">
                     <ul class="messages__list">
                         <% messages.forEach(message => { %>
@@ -31,7 +31,6 @@
                         <% }); %>
                     </ul>
                 </section>
-
             <% } %> 
         </main>
     <% } %> 

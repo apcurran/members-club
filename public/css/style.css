@@ -130,17 +130,31 @@ body {
     align-self: center;
 }
 
-/* Form Error Messages */
-.error {
-    color: #9C4221;
-    margin: .5rem 0;
+/* Login Form */
+
+.form-img--tall {
+    padding: 2rem;
+    width: 20rem;
+    justify-self: center;
 }
 
 /* Messages Page */
 .main-messages {
-    padding: 3rem;
-    background-color: #fff;
     width: 65rem;
     max-width: 92.5%;
+
+    background-color: #fff;
+    box-shadow: 
+        0 10px 28px rgba(0, 0, 0, .11),
+        0 3px 11px rgba(0, 0, 0, .12);
+    border-radius: 10px;
+    transform: translateY(-25%);
     margin: 0 auto;
+    padding: 3rem;
+}
+
+/* Form Error Messages */
+.error {
+    color: #9C4221;
+    margin: .5rem 0;
 }
