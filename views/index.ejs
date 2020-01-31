@@ -14,9 +14,8 @@
             <% if (user) { %>
                 <div class="form-group--message">
                     <input type="hidden" name="name" value="<%= user.name %>">
-                    <label for="message" class="form-group__label--message">Your Message</label>
                     <input type="text" class="form-group__input--message" name="message">
-                    <input type="submit" class="form-group__submit--message" value="Submit">
+                    <input type="submit" class="form-group__submit--message" value="+">
                 </div>
             </form>
             <% if (messages) { %>
@@ -24,9 +23,10 @@
                     <ul class="messages__list">
                         <% messages.forEach(message => { %>
                             <li class="messages__list__item">
-                                <h3 class="messages__list__item__author"><%= message.name %> </h3>
+                                <h3 class="messages__list__item__author">
+                                    <%= message.name %> <span class="messages__list__item__date"><%= message.dateFormatted %></span>
+                                </h3>
                                 <p class="messages__list__item__para"><%= message.message %></p>
-                                <p class="messages__list__item__date"><%= message.dateFormatted %></p>
                             </li>
                         <% }); %>
                     </ul>

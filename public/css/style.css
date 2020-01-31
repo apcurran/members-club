@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --input-bgc: #e2e8f0;
+    --btn-bgc: #1a202c;
+}
+
 body,
 button,
 input {
@@ -103,7 +108,7 @@ body {
 .form-group__input {
     padding: .5rem;
     font-size: 1rem;
-    background-color: #e2e8f0;
+    background-color: var(--input-bgc);
     border: none;
     border-radius: 4px;
 }
@@ -113,7 +118,7 @@ body {
     padding: .6rem;
     text-transform: uppercase;
     font-size: 1rem;
-    background-color: #1a202c;
+    background-color: var(--btn-bgc);
     border: none;
     color: #fff;
     cursor: pointer;
@@ -151,6 +156,53 @@ body {
     transform: translateY(-25%);
     margin: 0 auto;
     padding: 3rem;
+}
+
+.form--message {
+    margin-bottom: 2rem;
+}
+
+.form-group--message {
+    display: flex;
+}
+
+.form-group__input--message {
+    flex-grow: 1;
+
+    padding: .4rem;
+    font-size: 1rem;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #d2d2d2;
+    background-color: var(--input-bgc);
+}
+
+.form-group__submit--message {
+    font-size: 1.75rem;
+    padding: 0 .95rem;
+    border-radius: 0 4px 4px 0;
+    background-color: var(--btn-bgc);
+    border: 1px solid var(--btn-bgc);
+    color: #fff;
+    cursor: pointer;
+}
+
+.messages__list {
+    list-style: none;
+}
+
+.messages__list__item:not(:last-of-type) {
+    margin-bottom: 1.5rem;
+}
+
+.messages__list__item__author {
+    margin-bottom: .2rem;
+}
+
+.messages__list__item__date {
+    font-size: .95rem;
+    font-weight: 400;
+    color: #718096;
+    margin-left: .5rem;
 }
 
 /* Form Error Messages */
