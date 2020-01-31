@@ -220,6 +220,10 @@ body {
     margin-left: .5rem;
 }
 
+.messages__list__item__para {
+    line-height: 1.6;
+}
+
 /* About Page */
 .section-top--about {
     padding: 11rem 6rem;
@@ -278,4 +282,43 @@ body {
 .error {
     color: #9C4221;
     margin: .5rem 0;
+}
+
+/* Smaller Screens */
+
+/* Tablets */
+@media screen and (max-width: 66em) {
+    .section-form {
+        width: 100%;
+        grid-template-columns: 1fr;
+        transform: translateY(0);
+        margin: 3rem auto;
+    }
+
+    .main-messages {
+        width: 100%;
+        transform: translateY(0);
+        margin: 3rem auto;
+    }
+}
+
+@media screen and (max-width: 35em) {
+    .nav { padding: 1.5rem 2rem; }
+
+    .nav__logo { font-size: 1rem; }
+
+    .nav__list__link {
+        font-size: .85rem;
+        padding: .25rem .5rem;
+    }
+
+    .form-group__label,
+    .form-group__input,
+    .form-group__submit { font-size: .95rem; }
+
+    .section-top__title { font-size: 1.4rem; }
+
+    .form--message { width: 100%; }
+
+    .main-messages { padding: 1.5rem; }
 }
