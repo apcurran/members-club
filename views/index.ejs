@@ -1,8 +1,7 @@
 <%- include("./partials/navbar") %> 
 <div class="container">
     <section class="section-top">
-        <h2 class="section-top__title">Welcome back <%= user.name %>!</h2>
-        <a href="/log-out">LOG OUT</a>
+        <h2 class="section-top__title">Welcome back <%= user.name %>! <a class="section-top__log-out" href="/log-out">LOG OUT</a></h2>
     </section>
     <main class="main-messages">
         <form action="/" method="POST" class="form--message">

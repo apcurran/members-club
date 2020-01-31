@@ -1,5 +1,27 @@
 <%- include("./partials/navbar") %> 
 <div class="container">
-    <h2>About Us</h2>
+    <section class="section-top--about">
+        <h2 class="section-top--about__title">About Us</h2>
+        <p class="section-top--about__para">
+            Join our exclusive clubhouse where only members get access to viewing post authors.  Speak your mind and share your thoughts!
+        </p>
+    </section>
+    <main class="main--about">
+        <article class="card">
+            <h3 class="card__title">View Messages</h3>
+            <img src="/images/icon-view.svg" alt="Card icon" class="card__img card__img1">
+            <p class="card__para">Only members can see posts.</p>
+        </article>
+        <article class="card">
+            <h3 class="card__title">Post Messages</h3>
+            <img src="/images/icon-file.svg" alt="Card icon" class="card__img card__img2">
+            <p class="card__para">Members can make posts, and interact with the world.</p>
+        </article>
+        <article class="card">
+            <h3 class="card__title">Security</h3>
+            <img src="/images/icon-server.svg" alt="Card icon" class="card__img card__img3">
+            <p class="card__para">We use secure methods to ensure that your information is handled appropriately.</p>
+        </article>
+    </main>
 </div>
 <%- include("./partials/footer") %> 
