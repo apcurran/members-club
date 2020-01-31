@@ -284,9 +284,14 @@ body {
     margin: .5rem 0;
 }
 
-/* Smaller Screens */
-
 /* Tablets */
+@media screen and (max-width: 88em) {
+    .main--about {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media screen and (max-width: 66em) {
     .section-form {
         width: 100%;
@@ -302,6 +307,15 @@ body {
     }
 }
 
+@media screen and (max-width: 44em) {
+    .section-top--about { padding: 11rem 2rem; }
+
+    .main--about { grid-template-columns: 1fr; }
+
+    .card__para { font-size: .95rem; }
+}
+
+/* Phones */
 @media screen and (max-width: 35em) {
     .nav { padding: 1.5rem 2rem; }
 
