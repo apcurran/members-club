@@ -1,9 +1,11 @@
 <%- include("./partials/navbar") %> 
 <div class="container">
+    <section class="section-top">
+        <h2 class="section-top__title">Login</h2>
+    </section>
     <% if (messages.error) { %>
         <p><%= messages.error %></p>
     <% } %> 
-    <h2>Login</h2>
     <form action="/login" method="POST" class="form">
         <div class="form-group">
             <label for="email" class="form-group__label">Email</label>
