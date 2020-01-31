@@ -1,6 +1,9 @@
 {
   "name": "members-message",
   "version": "1.0.0",
+  "engines": {
+    "node": "13.0.1"
+  },
   "description": "A message board for secure members",
   "main": "server.js",
   "scripts": {
