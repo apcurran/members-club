@@ -39,10 +39,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Routers
 app.use("/", indexRouter);
