@@ -20,7 +20,7 @@
             <% if (messages) { %>
                 <section class="messages">
                     <ul class="messages__list">
-                        <% messages.forEach(message => { %>
+                        <% messages.reverse().forEach(message => { %>
                             <li class="messages__list__item">
                                 <h3 class="messages__list__item__author">
                                     <%= message.name %> <span class="messages__list__item__date"><%= message.dateFormatted %></span>

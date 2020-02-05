@@ -19,7 +19,7 @@ const loginRouter = require("./routes/login");
 const logoutRouter = require("./routes/log-out");
 
 // DB Setup
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
