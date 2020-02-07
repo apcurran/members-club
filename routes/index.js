@@ -12,7 +12,12 @@ function validate(validations) {
 
         if (errors.isEmpty()) return next();
 
-        return res.render("index", { title: "Member's Only Messages", user: req.user, messages: null, errors: errors.array() });
+        Message.find((err, data) => {
+            if (err) return next(err);
+
+            return res.render("index", { title: "Member's Only Messages", user: req.user, messages: data, errors: errors.array() });
+        });
+
     }
 }
 
