@@ -5,34 +5,38 @@ const { validationResult } = require('express-validator'); // Validate data
 const { body } = require('express-validator'); // Sanitize data
 const bcrypt = require("bcrypt");
 
+function validate(validations) {
+    return async (req, res, next) => {
+        await Promise.all(validations.map(validation => validation.run(req)));
+        const errors = validationResult(req);
+
+        if (errors.isEmpty()) return next();
+
+        return res.render("register", { title: "Create an Account", email: req.body.email, errors: errors.array() });
+    }
+}
 
 router.get("/", (req, res) => {
     res.render("register", { title: "Create an Account" });
 });
 
-router.post("/", [
+router.post("/", validate([
 
     body("name")
-        .not().isEmpty()
+        .notEmpty()
         .trim()
         .escape(),
     body("email")
         .isEmail()
         .normalizeEmail(),
     body("password")
-        .not().isEmpty()
+        .notEmpty()
         .isLength({ min: 6, max: 1000 })
         .trim()
         .escape()
         
-], async (req, res, next) => { 
+]), async (req, res, next) => { 
     try {
-        const errors = validationResult(req);
-        // If email or password error exists, re-render page with error message
-        if (!errors.isEmpty()) {
-            return res.render("register", { title: "Create an Account", email: req.body.email, errors: errors.array() });
-        }
-
         // If email already exists, re-render register page with error message
         const emailExist = await User.findOne({ email: req.body.email });
 

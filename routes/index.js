@@ -5,6 +5,17 @@ const Message = require("../models/Message");
 const { validationResult } = require('express-validator'); // Validate data
 const { body } = require('express-validator');
 
+function validate(validations) {
+    return async (req, res, next) => {
+        await Promise.all(validations.map(validation => validation.run(req)));
+        const errors = validationResult(req);
+
+        if (errors.isEmpty()) return next();
+
+        return res.render("index", { title: "Member's Only Messages", user: req.user, messages: null, errors: errors.array() });
+    }
+}
+
 router.get("/", checkAuthenticated, (req, res) => {
     // Find all messages in db
     Message.find((err, data) => {
@@ -14,24 +25,18 @@ router.get("/", checkAuthenticated, (req, res) => {
     });
 });
 
-router.post("/", [
+router.post("/", validate([
 
     body("name")
-        .not().isEmpty()
+        .notEmpty()
         .trim()
         .escape(),
     body("message")
-        .not().isEmpty()
+        .notEmpty()
         .escape()
 
-], async (req, res, next) => {
+]), async (req, res, next) => {
     try {
-        const errors = validationResult(req);
-        // Re-render page with error message
-        if (!errors.isEmpty()) {
-            return res.render("index", { title: "Member's Only Messages", errors: errors.array() });
-        }
-
         const message = new Message({
             name: req.body.name,
             message: req.body.message
