@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User");
 const passport = require("passport");
 const { checkNotAuthenticated } = require("../config/checkAuth");
 
 router.get("/", checkNotAuthenticated, (req, res) => {
-    res.render("login", { title: "Login to Member's Club" });
+    res.render("login", { title: "Login to Member's Club", user: req.user });
 });
 
 router.post(

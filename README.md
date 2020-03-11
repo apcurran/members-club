@@ -2,6 +2,8 @@
 
 [Link](https://members-only-messages.herokuapp.com/)
 
+![Signup view](./README-imgs/signup-view.png)
+
 ## Features:
 
 * User messages are hidden until a user registers as a "member" and logs in
