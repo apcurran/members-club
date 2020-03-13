@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("express-flash");
+const compression = require("compression");
 const passportSetup = require("./config/passport-config");
 
 // Import Routes
@@ -24,6 +25,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 // View Engine Setup
+app.use(compression());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.set("layout", "layouts/layout");
