@@ -21,13 +21,17 @@ function validate(validations) {
     }
 }
 
-router.get("/", checkAuthenticated, (req, res) => {
+router.get("/", checkAuthenticated, async (req, res, next) => {
     // Find all messages in db
-    Message.find((err, data) => {
-        if (err) return console.error(err);
-
-        res.render("index", { title: "Member's Only Messages", user: req.user, messages: data });
-    });
+    try {
+        const messages = await Message.find();
+        
+        res.render("index", { title: "Member's Only Messages", user: req.user, messages: messages });
+        
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
 });
 
 router.post("/", validate([
