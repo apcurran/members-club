@@ -13,7 +13,6 @@ passport.use(
 
       if (!user) return done(null, false, { msg: "Incorrect email" });
 
-      // bcrypt compare
       bcrypt.compare(password, user.password, (err, res) => {
         if (res) return done(null, user);
 
