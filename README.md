@@ -1,7 +1,5 @@
 # Member's Only Message Board (Express, MongoDB, EJS, HTML, & CSS)
 
-[Link](https://members-only-messages.herokuapp.com/)
-
 ![Signup view](./README-imgs/signup-view.png)
 
 ## Features:
